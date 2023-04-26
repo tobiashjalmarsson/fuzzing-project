@@ -18,6 +18,23 @@ class Initiator:
                             help="target ip for fuzzing", 
                             type=str,
                             default="127.0.0.1")
+        
+        parser.add_argument("-wldir", "--wldir"
+                            , required=False,
+                            help="Wordlist to use for directory fuzzing", 
+                            type=str,
+                            default="directories")
+    
+        parser.add_argument("-wldom", "--wldom"
+                            , required=False,
+                            help="Wordlist to use for subdomain fuzzing", 
+                            type=str,
+                            default="subdomains")
+        
+        
+        
         arguments = parser.parse_args()
         self.ip = arguments.ip
+        self.wldirectories = arguments.wldir + ".txt"
+        self.wldomains = arguments.wldom + ".txt"
 
